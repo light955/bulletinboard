@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Message Board</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <main class="container">
+    <header class="glass-panel text-center">
+      <h1>Global Message Board</h1>
+      <p>Connect with the world instantly</p>
+    </header>
+
+    <div class="content-wrapper">
+      <section class="form-section glass-panel">
+        <h2>Post a Message</h2>
+        <form id="postForm">
+          <div class="input-group">
+            <label for="nameInput">Name</label>
+            <input type="text" id="nameInput" placeholder="Enter your name" required autocomplete="off">
+          </div>
+          <div class="input-group">
+            <label for="messageInput">Message</label>
+            <textarea id="messageInput" placeholder="What's on your mind?" required></textarea>
+          </div>
+          <button type="submit" id="submitBtn" class="primary-btn">
+            <span class="btn-content">Send Message</span>
+            <span class="loader"></span>
+          </button>
+        </form>
+      </section>
+
+      <section class="posts-section">
+        <div class="glass-panel" style="padding: 1.5rem 2rem;">
+          <h2 style="margin-bottom: 0;">Recent Messages</h2>
+        </div>
+        <div id="postsList" class="posts-list">
+          <!-- Posts will be injected here via JavaScript -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
