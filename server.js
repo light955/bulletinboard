@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const connectionUrl = process.env.DATABASE_URL || process.env.MYSQL_URL || process.env.MYSQLURL;
+const connectionUrl = process.env.DATABASE_URL || process.env.MYSQL_URL || process.env.MYSQLURL || "mysql://root:FjaTnDuTDteJHHHzrTDGWLpcYaYkyqzs@mysql.railway.internal:3306/railway";
 
 const pool = connectionUrl 
   ? mysql.createPool(connectionUrl)
