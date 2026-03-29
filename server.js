@@ -11,13 +11,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Database connection pool
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 3306,
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'test',
+  host: process.env.DB_HOST || process.env.MYSQLHOST || 'localhost',
+  port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : (process.env.MYSQLPORT ? parseInt(process.env.MYSQLPORT, 10) : 3306),
+  user: process.env.DB_USER || process.env.MYSQLUSER || 'root',
+  password: process.env.DB_PASSWORD || process.env.MYSQLPASSWORD || '',
+  database: process.env.DB_NAME || process.env.MYSQLDATABASE || 'test',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
