@@ -59,7 +59,7 @@ app.get('/api/posts', async (req, res) => {
 // POST a new post
 app.post('/api/posts', async (req, res) => {
   const { name, content } = req.body;
-  
+
   if (!name || name.trim() === '' || !content || content.trim() === '') {
     return res.status(400).json({ error: '名前とメッセージは必須です。' });
   }
@@ -69,7 +69,7 @@ app.post('/api/posts', async (req, res) => {
       'INSERT INTO posts (name, content) VALUES (?, ?)',
       [name, content]
     );
-    
+
     // Fetch the inserted post to return it to the frontend
     const [newPost] = await pool.query('SELECT * FROM posts WHERE id = ?', [result.insertId]);
     res.status(201).json(newPost[0]);
@@ -80,5 +80,5 @@ app.post('/api/posts', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`http://localhost:${port}`);
 });
